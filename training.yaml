@@ -1,0 +1,94 @@
+## Where the samples will be written
+save_data: run/example
+## Where the vocab(s) will be written
+src_vocab: run/example.vocab
+tgt_vocab: run/example.vocab
+
+share_vocab: true
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+#tgt_vocab_size: 100000
+#src_vocab_size: 100000
+
+# Corpus opts:
+data:
+    TC3:
+        path_src: data/nlp/shuffled/src-train.txt
+        path_tgt: data/nlp/shuffled/tgt-train.txt
+        weight: 1
+        transforms: [filtertoolong]
+    valid:
+        path_src: data/nlp/src-test.txt
+        path_tgt: data/nlp/tgt-test.txt
+        transforms: []
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+
+# Where to save the checkpoints
+save_model: run/model
+save_checkpoint_steps: 5000
+train_steps: 100000
+valid_steps: 1000
+
+seed: 1234
+
+n_sample: 0
+
+tensorboard: true
+tensorboard_log_dir: tensorboard
+
+#### Filter
+src_seq_length: 150
+tgt_seq_length: 150
+
+skip_empty_level: silent
+
+#layers: 4
+#rnn_size: 1000
+
+# Batching
+queue_size: 10000
+bucket_size: 32768
+world_size: 1
+gpu_ranks: [0]
+batch_type: "tokens"
+batch_size: 1024
+valid_batch_size: 64
+batch_size_multiple: 1
+max_generator_batches: 0
+accum_count: [3]
+accum_steps: [0]
+
+# Optimization
+model_dtype: "fp32"
+optim: "adam"
+learning_rate: 2
+warmup_steps: 8000
+decay_method: "noam"
+adam_beta2: 0.998
+max_grad_norm: 0
+label_smoothing: 0.1
+param_init: 0
+param_init_glorot: true
+normalization: "tokens"
+
+# Model
+encoder_type: transformer
+decoder_type: transformer
+enc_layers: 6
+dec_layers: 6
+heads: 8
+rnn_size: 512
+word_vec_size: 512
+transformer_ff: 2048
+dropout_steps: [0]
+dropout: [0.2]
+attention_dropout: [0.1]
+share_decoder_embeddings: true
+share_embeddings: true
+
+#train_from: run/model_step_250000.pt
+
