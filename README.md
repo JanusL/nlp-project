@@ -21,7 +21,7 @@ The repository of the NLP course project.
 * To calculate evaluation scores, run scripts/evaluate.py
 * To generate a line-by-line english-slovene-predictions file, run scripts/compare.py
 
-###Folder structure before converting and tokenizing:
+### Folder structure before converting and tokenizing:
 ```
 data
 ├── nlp
