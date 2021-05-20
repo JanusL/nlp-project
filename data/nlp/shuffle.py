@@ -1,7 +1,7 @@
 import random
 
-fin = open("src-train.txt","r")
-fout = open("shuffled/src-train.txt","w")
+fin = open("src-token.txt","r")
+fout = open("shuffled/src-token.txt","w")
 
 print("Reading src file....")
 lines = fin.readlines()
@@ -15,8 +15,8 @@ fout.writelines(lines)
 fin.close()
 fout.close()
 
-fin = open("tgt-train.txt","r")
-fout = open("shuffled/tgt-train.txt","w")
+fin = open("tgt-token.txt","r")
+fout = open("shuffled/tgt-token.txt","w")
 
 print("Reading tgt file....")
 lines = fin.readlines()
