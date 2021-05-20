@@ -22,7 +22,7 @@ The repository of the NLP course project.
 * To generate a line-by-line english-slovene-predictions file, run scripts/compare.py
 
 ###Folder structure before converting and tokenizing:
-
+```
 data
 ├── nlp
 │   ├── asistent_testset.en
@@ -190,3 +190,4 @@ data
         └── sl
             └── wiki0.sl-en.xml
 
+```
