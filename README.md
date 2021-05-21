@@ -4,7 +4,7 @@ The repository of the NLP course project.
 
 * Install opennmt-py, transformers, nltk and numpy using pip
 * Download the vocabulary from https://huggingface.co/EMBEDDIA/crosloengual-bert (vocab.txt), rename it to bert.vocab and place it into the root directory.
-* Download the needed data. SPOOK, TRANS, ORWELL (in ELAN) and RANDOM (razni TMXi - IT) can be downloaded from the onedrive and Wikipedia and Wikimedia from https://opus.nlpl.eu/.
+* Download the needed data. SPOOK, TRANS, ORWELL (in ELAN) and RANDOM (razni TMXi - IT) can be downloaded from the onedrive, TC3 from the e-classroom and Wikipedia and Wikimedia from https://opus.nlpl.eu/.
 * Put the data in apropriate folders, untill you get the folder structure bellow.
 * Convert each dataset not in .txt format to .txt formats using the scripts provided in the apropriate folders. NOTE: Wikimedia is huge and requires a lot of memory and will take a lot of time to process. Wikipedia will also take about an hour. If you only wish to see how training works, you can probably skip these two.
 * Run the preprocess.sh script to clean and preprocess all the data. NOTE: TC3 is a huge file, meaning this can take about an hour. You can remove TC3 part from the script if you only wish to see how training works.
