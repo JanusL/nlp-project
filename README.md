@@ -2,7 +2,7 @@ The repository of the NLP course project.
 
 ### To train a translation model, follow the steps bellow:
 
-* Install OpenNMT-py using pip
+* Install OpenNMT-py, transformers, nltk using pip
 * Download the vocabulary from https://huggingface.co/EMBEDDIA/crosloengual-bert (vocab.txt), rename it to bert.vocab and place it into the root directory.
 * Download the needed data. SPOOK, TRANS, ORWELL (in ELAN) and RANDOM (razni TMXi - IT) can be downloaded from the onedrive and Wikipedia and Wikimedia from https://opus.nlpl.eu/.
 * Put the data in apropriate folders, untill you get the folder structure bellow.
