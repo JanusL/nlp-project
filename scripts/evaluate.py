@@ -2,7 +2,7 @@ import nltk.translate as nt
 import string
 import nltk
 import argparse
-#nltk.download('wordnet')
+nltk.download('wordnet')
 
 parser = argparse.ArgumentParser()
 
