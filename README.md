@@ -16,7 +16,7 @@ The repository of the NLP course project.
 
 ### To test one of the models, follow the steps bellow:
 
-* Download the models from [redacted]
+* Download the models from https://drive.google.com/drive/folders/1RgJY3nI-Vlvbt8deW3tPuvn5rWa69WHp?usp=sharing
 * Run translate.sh (model) (input file) (output file)
 * To calculate evaluation scores, run scripts/evaluate.py
 * To generate a line-by-line english-slovene-predictions file, run scripts/compare.py
