@@ -4,22 +4,40 @@ The repository of the NLP course project.
 
 * Install opennmt-py, transformers, nltk and numpy using pip
 * Download the vocabulary from https://huggingface.co/EMBEDDIA/crosloengual-bert (vocab.txt), rename it to bert.vocab and place it into the root directory.
-* Download the needed data. SPOOK, TRANS, ORWELL (in ELAN) and RANDOM (razni TMXi - IT) can be downloaded from the onedrive, TC3 from the e-classroom and Wikipedia and Wikimedia from https://opus.nlpl.eu/.
-* Put the data in apropriate folders, untill you get the folder structure bellow.
-* Convert each dataset not in .txt format to .txt formats using the scripts provided in the apropriate folders. NOTE: Wikimedia is huge and requires a lot of memory and will take a lot of time to process. Wikipedia will also take about an hour. If you only wish to see how training works, you can probably skip these two.
+* Download the needed data. SPOOK, TRANS and RANDOM (razni TMXi - IT) can be downloaded from the onedrive (the one provided for these projects), TC3 from the e-classroom and Wikipedia and Wikimedia from https://opus.nlpl.eu/ (or download already converted data from drive: TBA),  ORWELL (from ELAN - http://nl.ijs.si/elan/, only need two files from here, elan-orwl-en.xml and elan-orwl-sl.xml)
+* Put the data in apropriate folders, until you get the folder structure below.
+* Convert each dataset not in .txt format to .txt formats using the scripts provided in the apropriate folders. NOTE: Wikimedia is huge and requires a lot of memory and will take a lot of time to process. Wikipedia will also take about an hour. If you only wish to see how training works, you can probably skip these two or use provided data.
 * Run the preprocess.sh script to clean and preprocess all the data. NOTE: TC3 is a huge file, meaning this can take about an hour. You can remove TC3 part from the script if you only wish to see how training works.
 * Run shuffle.py from data/nlp to shuffle TC3 data before each training start.
-* Open the training.yaml script to setup the weights of each dataset
-* Use onmt_train -config training.yaml to start training
-* Open the finetune.yaml to setup datasets to finetune on
-* Use onmt_train -config finetune.yaml to start finetuning
+* Open the training.yaml script to set the weights of each dataset.
+* Use onmt_train -config training.yaml to start training.
+* Open the finetune.yaml to setup datasets to finetune on.
+* Use onmt_train -config finetune.yaml to start finetuning.
 
 ### To test one of the models, follow the steps bellow:
 
 * Download the models from https://drive.google.com/drive/folders/1RgJY3nI-Vlvbt8deW3tPuvn5rWa69WHp?usp=sharing
-* Run translate.sh (model) (input file) (output file)
-* To calculate evaluation scores, run scripts/evaluate.py
-* To generate a line-by-line english-slovene-predictions file, run scripts/compare.py
+* Run translate.sh (model) (input file) (output file):
+
+For testing general model on general testset: 
+
+`translate.sh models/model_general.pt data/nlp/asistent_testset.en eval/general_testset.txt`
+
+For testing general model on Orwell: 
+
+`translate.sh models/model_general.pt data/orwel/elan-orwl-en.txt eval/general_orwl.txt`
+
+* To calculate evaluation scores, run scripts/evaluate.py --original <> --translated <> like:
+ 
+For evaluating general model on general testset: 
+    
+`scripts/evaluate.py --original data/nlp/asistent_testset.sl --translated eval/general_testset.txt`
+    
+* To generate a line-by-line english-slovene-predictions file, run scripts/compare.py --en <> --sl <> --pred <> --out <> like:
+    
+For comparing translations of general model on general testset:
+    
+   `scripts/compare.py --en data/nlp/asistent_testset.en --sl data/nlp/asistent_testset.sl --pred eval/general_testset.txt --out <filename>`
 
 ### Folder structure before converting and tokenizing:
 ```
@@ -34,7 +52,8 @@ data
 ├── orwel
 │   ├── convert.py
 │   └── raw
-│       └── orwl-txt.tei
+│       ├── elan-orwl-en.xml
+|       └── elan-orwl-sl.xml
 ├── random
 │   ├── convert.py
 │   └── raw
