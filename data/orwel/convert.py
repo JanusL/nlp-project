@@ -4,7 +4,7 @@ import numpy as np
 
 
 filename = {'en' : 'elan-orwl-en', 'sl' :  'elan-orwl-sl'}
-tree = {fn : ET.parse('raw/orwl-txt.tei') for fn in filename}
+tree = {fn : ET.parse(f'{filename[fn]}.xml') for fn in filename}
 root = {fn : tree[fn].getroot()  for fn in tree}
 
 f = {}
