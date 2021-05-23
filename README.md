@@ -1,9 +1,10 @@
 The repository of the NLP course project.
 
-### To setup the enviromentw:
+### To setup the enviroment:
 
 * Install opennmt-py, transformers, nltk and numpy using pip
-* You can download all necessary data from drive or follow the steps bellow to get data from original sources and use the scripts to preprocess it.
+* Download all the preprocessed data from https://drive.google.com/drive/folders/19ANTvF3TVisWY1iZ87dNSQM4LxyN320p?usp=sharing. If you are part of the NLP course I will grant you access.
+* Alternatively, follow the steps bellow to get data from original sources and use the scripts to preprocess it.
 * Download the vocabulary from https://huggingface.co/EMBEDDIA/crosloengual-bert (vocab.txt), rename it to bert.vocab and place it into the root directory.
 * Download the needed data. SPOOK, TRANS and RANDOM (razni TMXi - IT) can be downloaded from the onedrive (the one provided for these projects), TC3 from the e-classroom and Wikipedia and Wikimedia from https://opus.nlpl.eu/,  ORWELL (from ELAN - http://nl.ijs.si/elan/, only need two files from here, elan-orwl-en.xml and elan-orwl-sl.xml)
 * Put the data of each corpus into their apropriate /raw subfolder. Refer to the data structure bellow.
@@ -21,6 +22,7 @@ The repository of the NLP course project.
 ### To test one of the models:
 
 * Download the models from https://drive.google.com/drive/folders/1RgJY3nI-Vlvbt8deW3tPuvn5rWa69WHp?usp=sharing
+* Texts that we used for evaluation are availible at https://drive.google.com/drive/folders/1KPQ9ibHhjjQiolHu2JlSCrVFY6GGo9JJ?usp=sharing, but you can test on your own texts as well
 * Run translate.sh <model> <input file> <output file>:
 
 For testing general model on general testset: 
