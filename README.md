@@ -1,23 +1,27 @@
 The repository of the NLP course project.
 
-### To train a translation model, follow the steps bellow:
+### To setup the enviromentw:
 
 * Install opennmt-py, transformers, nltk and numpy using pip
+* You can download all necessary data from drive or follow the steps bellow to get data from original sources and use the scripts to preprocess it.
 * Download the vocabulary from https://huggingface.co/EMBEDDIA/crosloengual-bert (vocab.txt), rename it to bert.vocab and place it into the root directory.
-* Download the needed data. SPOOK, TRANS and RANDOM (razni TMXi - IT) can be downloaded from the onedrive (the one provided for these projects), TC3 from the e-classroom and Wikipedia and Wikimedia from https://opus.nlpl.eu/ (or download already converted data from drive: TBA),  ORWELL (from ELAN - http://nl.ijs.si/elan/, only need two files from here, elan-orwl-en.xml and elan-orwl-sl.xml)
-* Put the data in apropriate folders, until you get the folder structure below.
+* Download the needed data. SPOOK, TRANS and RANDOM (razni TMXi - IT) can be downloaded from the onedrive (the one provided for these projects), TC3 from the e-classroom and Wikipedia and Wikimedia from https://opus.nlpl.eu/,  ORWELL (from ELAN - http://nl.ijs.si/elan/, only need two files from here, elan-orwl-en.xml and elan-orwl-sl.xml)
+* Put the data of each corpus into their apropriate /raw subfolder. Refer to the data structure bellow.
 * Convert each dataset not in .txt format to .txt formats using the scripts provided in the apropriate folders. NOTE: Wikimedia is huge and requires a lot of memory and will take a lot of time to process. Wikipedia will also take about an hour. If you only wish to see how training works, you can probably skip these two or use provided data.
-* Run the preprocess.sh script to clean and preprocess all the data. NOTE: TC3 is a huge file, meaning this can take about an hour. You can remove TC3 part from the script if you only wish to see how training works.
+* Run the preprocess.sh script to clean and preprocess all the data. NOTE: TC3 is a huge file, meaning this can take about an hour. You can remove TC3 part from the script if you only wish to see how training works, or use provided data.
+
+### To train a model:
+
 * Run shuffle.py from data/nlp to shuffle TC3 data before each training start.
-* Open the training.yaml script to set the weights of each dataset.
+* Open the training.yaml script to set the parameters. Mostly, you may want to change the weights of corpora if you skipped any. (If all weights are 1, each batch has the same ammount of sentences from each corpus. If you set one to 2, then each batch will have twice the number of sentences of that corpus. Set it to 0 to ignore that corpus.)
 * Use onmt_train -config training.yaml to start training.
-* Open the finetune.yaml to setup datasets to finetune on.
+* Open the finetune.yaml to setup datasets to finetune on. Also set the model you want to finetune on under the train_from option.
 * Use onmt_train -config finetune.yaml to start finetuning.
 
-### To test one of the models, follow the steps bellow:
+### To test one of the models:
 
 * Download the models from https://drive.google.com/drive/folders/1RgJY3nI-Vlvbt8deW3tPuvn5rWa69WHp?usp=sharing
-* Run translate.sh (model) (input file) (output file):
+* Run translate.sh <model> <input file> <output file>:
 
 For testing general model on general testset: 
 
