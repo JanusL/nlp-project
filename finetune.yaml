@@ -1,5 +1,5 @@
 ## Where the samples will be written
-save_data: run13/example
+save_data: run/example
 ## Where the vocab(s) will be written
 src_vocab: bert.vocab
 #tgt_vocab: run11/example.vocab
@@ -19,42 +19,42 @@ data:
         path_src: data/spook/src-token.txt
         path_tgt: data/spook/tgt-token.txt
         weight: 10
-        transforms: [filtertoolong,filterlendiff]
+        transforms: [filtertoolong]
     lotr:
         path_src: data/spook/src-token-lotr.txt
         path_tgt: data/spook/tgt-token-lotr.txt
         weight: 10
-        transforms: [filtertoolong,filterlendiff]
+        transforms: [filtertoolong]
     hp:
         path_src: data/spook/src-token-hp.txt
         path_tgt: data/spook/tgt-token-hp.txt
         weight: 0
-        transforms: [filtertoolong,filterlendiff]
+        transforms: [filtertoolong]
     random:
         path_src: data/random/src-token.txt
         path_tgt: data/random/tgt-token.txt
         weight: 2
-        transforms: [filtertoolong,filterlendiff]
+        transforms: [filtertoolong]
     wikipedia:
         path_src: data/wikipedia/src-token.txt
         path_tgt: data/wikipedia/tgt-token.txt
         weight: 3
-        transforms: [filtertoolong,filterlendiff]
+        transforms: [filtertoolong]
     wikimedia:
         path_src: data/wikimedia/src-token.txt
         path_tgt: data/wikimedia/tgt-token.txt
         weight: 3
-        transforms: [filtertoolong,filterlendiff]
+        transforms: [filtertoolong]
     TRANS:
         path_src: data/trans/src-token.txt
         path_tgt: data/trans/tgt-token.txt
         weight: 2
-        transforms: [filtertoolong,filterlendiff]
+        transforms: [filtertoolong]
     TC3:
         path_src: data/nlp/shuffled/src-train.txt
         path_tgt: data/nlp/shuffled/tgt-train.txt
         weight: 0
-        transforms: [filtertoolong,filterlendiff]
+        transforms: [filtertoolong]
     valid:
         path_src: tests/src/tokenized/orwl1.txt
         path_tgt: tests/src/tokenized/orwl1-sl.txt
@@ -65,7 +65,7 @@ world_size: 1
 gpu_ranks: [0]
 
 # Where to save the checkpoints
-save_model: run13/model
+save_model: run/model
 save_checkpoint_steps: 1000
 train_steps: 320000             #general was trained for 300 000, we finetune for 20 000 more
 valid_steps: 1000

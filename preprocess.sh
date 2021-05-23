@@ -42,21 +42,25 @@ python scripts/cleanup.py --input data/orwel/elan-orwl-sl.txt --output data/orwe
 python scripts/bert_tokenize.py --input data/orwel/src-clean.txt --output data/orwel/src-token.txt & \
 python scripts/bert_tokenize.py --input data/orwel/tgt-clean.txt --output data/orwel/tgt-token.txt
 
+wait
+
 echo "Tokenizing hp..."
 
-python scripts/cleanup.py --input data/spook/text/spook_en-sl_L004-en.txt --output data/src-clean-hp.txt & \
-python scripts/cleanup.py --input data/spook/text/spook_en-sl_L004-sl.txt --output data/tgt-clean-hp.txt
+python scripts/cleanup.py --input data/spook/text/spook_en-sl_L004-en.txt --output data/spook/src-clean-hp.txt & \
+python scripts/cleanup.py --input data/spook/text/spook_en-sl_L004-sl.txt --output data/spook/tgt-clean-hp.txt
 
-python scripts/bert_tokenize.py --output data/src-clean-hp.txt --output data/src-token-hp.txt & \
-python scripts/bert_tokenize.py --output data/tgt-clean-hp.txt --output data/tgt-token-hp.txt
+python scripts/bert_tokenize.py --input data/spook/src-clean-hp.txt --output data/spook/src-token-hp.txt & \
+python scripts/bert_tokenize.py --input data/spook/tgt-clean-hp.txt --output data/spook/tgt-token-hp.txt
+
+wait
 
 echo "Tokenizing lotr..."
 
-python scripts/cleanup.py --input data/spook/text/spook_en-sl_L005-en.txt --output data/src-clean-lotr.txt & \
-python scripts/cleanup.py --input data/spook/text/spook_en-sl_L005-sl.txt --output data/tgt-clean-lotr.txt
+python scripts/cleanup.py --input data/spook/text/spook_en-sl_L005-en.txt --output data/spook/src-clean-lotr.txt & \
+python scripts/cleanup.py --input data/spook/text/spook_en-sl_L005-sl.txt --output data/spook/tgt-clean-lotr.txt
 
-python scripts/bert_tokenize.py --output data/src-clean-lotr.txt --output data/src-token-lotr.txt & \
-python scripts/bert_tokenize.py --output data/tgt-clean-lotr.txt --output data/tgt-token-lotr.txt
+python scripts/bert_tokenize.py --input data/spook/src-clean-lotr.txt --output data/spook/src-token-lotr.txt & \
+python scripts/bert_tokenize.py --input data/spook/tgt-clean-lotr.txt --output data/spook/tgt-token-lotr.txt
 
 
 
